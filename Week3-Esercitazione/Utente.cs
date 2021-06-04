@@ -35,7 +35,7 @@ namespace Week3_Esercitazione
         }
         public bool Aggiungi_al_carrello(Prodotto p)
         {
-            //carrello.Add(new Dettaglio());
+            carrello.Add(new Dettaglio(p, 1, p.getPrezzo(), p.getSconto()));
             Console.WriteLine("Prodotto aggiunto correttamente!\n");
             return true;
         }

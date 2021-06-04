@@ -35,6 +35,7 @@ namespace Week3_Esercitazione
                     return i;
                 }
             }
+            Console.WriteLine("Utente non trovato\nExit...\n");
             return -1;
         }
         public static int aggiungiUtente(ArrayList utenti)
@@ -55,12 +56,21 @@ namespace Week3_Esercitazione
         public static int Aggiungi_prodotto_al_carrello(Utente ut)
         {
             int choice=0;
-            Console.WriteLine("Immetti il codice del prodotto: ");
+            Console.WriteLine("Immetti \n");
             int codice = 0;
             do
             {
-                Console.WriteLine("Prezzo: ");
+                Console.WriteLine("Codice: ");
             } while (!Int32.TryParse(Console.ReadLine(), out codice));
+            for(int i=0; i<ut.carrello.Count; i++)
+            {
+                if (ut.carrello[i].prodotto.codice == codice)
+                {
+                    ut.carrello[i].quantita++;
+                    Console.WriteLine("Oggetto aggiunt correttamente\n");
+                    return i;
+                }
+            }
             Console.WriteLine("Descrizione: ");
             string descrizione = Console.ReadLine();
             double prezzo=0.0;
@@ -88,6 +98,25 @@ namespace Week3_Esercitazione
                     Console.WriteLine("Brand: ");
                     string brand=Console.ReadLine();
                     Prodotto_Abbigliamento prAB = new Prodotto_Abbigliamento(codice, descrizione, prezzo, sconto, taglia, brand);
+                    ut.Aggiungi_al_carrello(prAB);
+                    break;
+                case 2:
+                    DateTime dt;
+                    do
+                    {
+                        Console.WriteLine("Immettere la scadenza: ");
+                    } while (!DateTime.TryParse(Console.ReadLine(), out dt));
+                    Prodotto_Alimentari prAL = new Prodotto_Alimentari(codice, descrizione, prezzo, sconto, dt);
+                    ut.Aggiungi_al_carrello(prAL);
+                    break;
+                case 3:
+                    Console.WriteLine("Produttore: ");
+                    string produttore=Console.ReadLine();
+                    Prodotto_Elettronica prEL = new Prodotto_Elettronica(codice, descrizione, prezzo, sconto, produttore);
+                    ut.Aggiungi_al_carrello(prEL);
+                    break;
+                default:
+                    Console.WriteLine("Tipo non supportato\n");
                     break;
             }
             return -1;

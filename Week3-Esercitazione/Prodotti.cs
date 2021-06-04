@@ -50,9 +50,13 @@ namespace Week3_Esercitazione
     class Prodotto_Alimentari:Prodotto
     {
         DateTime scadenza;
-        Prodotto_Alimentari(int c, string d, double p, int s, DateTime sc) : base(c, d, p, s)
+        public Prodotto_Alimentari(int c, string d, double p, int s, DateTime sc) : base(c, d, p, s)
         {
-            scadenza = sc;
+            this.codice = c;
+            this.descrizione = d;
+            this.prezzo = p;
+            this.sconto = s;
+            this.scadenza = sc;
         }
         public override string ToString()
         {
@@ -62,9 +66,13 @@ namespace Week3_Esercitazione
     class Prodotto_Elettronica:Prodotto
     {
         string produttore;
-        Prodotto_Elettronica(int c, string d, double p, int s, string pr):base(c, d, p, s)
+        public Prodotto_Elettronica(int c, string d, double p, int s, string pr):base(c, d, p, s)
         {
-            produttore = pr;
+            this.codice = c;
+            this.descrizione = d;
+            this.prezzo = p;
+            this.sconto = s;
+            this.produttore = pr;
         }
         public override string ToString()
         {
