@@ -54,7 +54,7 @@ namespace Week3_Esercitazione
                             Gestione.Elimina_Prodotto((Utente)utenti[utenteInQUestione]);
                             break;
                         case 3:
-                            Gestione.Elimina_Prodotto((Utente)utenti[utenteInQUestione]);
+                            Gestione.Modifica_Quantita_Prodotto((Utente)utenti[utenteInQUestione]);
                             break;
                         case 4:
                             ((Utente)utenti[utenteInQUestione]).stampa();

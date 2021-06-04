@@ -112,5 +112,27 @@ namespace Week3_Esercitazione
             Console.WriteLine("Oggetto non trovato. \n");
             return check;
         }
+        public static void Modifica_Quantita_Prodotto(Utente ut)
+        {
+            int codice = 0;
+            do
+            {
+                Console.WriteLine("Immetti il codice del prodotto: ");
+            } while (!Int32.TryParse(Console.ReadLine(), out codice));
+            for(int i=0; i<ut.carrello.Count; i++)
+            {
+                if (((Dettaglio)ut.carrello[i]).prodotto.codice == codice)
+                {
+                    int quantita = 0;
+                    do
+                    {
+                        Console.WriteLine("Immetti la nuova quantità: ");
+                    } while (!Int32.TryParse(Console.ReadLine(), out quantita));
+                    ((Dettaglio)ut.carrello[i]).quantita = quantita;
+                    Console.WriteLine(((Dettaglio)ut.carrello[i]).ToString());
+                    return;
+                }
+            }
+        }
     }
 }
